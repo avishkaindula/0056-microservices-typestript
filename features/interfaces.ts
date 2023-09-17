@@ -13,7 +13,7 @@ const printVehicle = (vehicle: { name: string; year: number; broken: boolean }):
 
 // -----------------------------------------------------------------------------------------------------
 
-interface Vehicle {
+interface Vehicle6 {
   name: string;
   year: number;
   broken: boolean;
@@ -23,15 +23,16 @@ interface Vehicle {
 const oldCivic2 = {
   name: 'civic',
   year: 2000,
-  broken: true
-  // isBroken: true // error
+  broken: true,
+  isBroken: true
   // broken: 'yes' // error
-  // name: 10 // error
-  // We can't add new properties or change the order of properties. We can only change the value of
-  // existing properties.
+  // name: "civic" // error
+  // We can add extra properties to an object that will be passed into a function that has an interface
+  // type annotation like we do on printVehicle2(oldCivic2); But we can't change the type of the properties
+  // or change the order of the properties. If we do that, we will get an error
 };
 
-const printVehicle2 = (vehicle: Vehicle): void => {
+const printVehicle2 = (vehicle: Vehicle6): void => {
   console.log(`Name: ${vehicle.name}`);
   console.log(`Year: ${vehicle.year}`);
   console.log(`Broken? ${vehicle.broken}`);
@@ -41,7 +42,7 @@ printVehicle2(oldCivic2);
 
 // -----------------------------------------------------------------------------------------------------
 
-interface Vehicle2 {
+interface Vehicle7 {
   name: string;
   year: Date;
   broken: boolean;
@@ -58,7 +59,7 @@ const oldCivic3 = {
   }
 };
 
-const printVehicle3 = (vehicle: Vehicle2): void => {
+const printVehicle3 = (vehicle: Vehicle7): void => {
   console.log(vehicle.summary());
 };
 
